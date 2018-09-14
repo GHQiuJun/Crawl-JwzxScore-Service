@@ -1,0 +1,48 @@
+{
+  "name": "crawl-jwzxScore-service",
+  "description": "crawl-jwzxScore-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "templateVersion": "2.2.0",
+  "scripts": {
+    "start": "node -r dotenv/config .",
+    "dev": "nodemon -r dotenv/config .",
+    "debug": "node -r dotenv/config --inspect-brk .",
+    "test": "node -r dotenv/config node_modules/.bin/jest",
+    "lint": "standard",
+    "fix": "standard --fix"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "pre-commit": [
+    "fix"
+  ],
+  "dependencies": {
+    "axios": "^0.18.0",
+    "clean-undefined": "^1.0.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^6.0.0",
+    "fastify": "^1.9.0",
+    "fastify-plugin": "^1.2.0",
+    "fastify-practice": "^2.0.0",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.11",
+    "puppeteer": "^1.7.0",
+    "querystring": "^0.2.0",
+    "randomstring": "^1.1.5",
+    "urlencode": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "jest": "^23.4.2",
+    "nodemon": "^1.18.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^11.0.1"
+  }
+}
