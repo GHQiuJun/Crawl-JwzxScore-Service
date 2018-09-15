@@ -7,7 +7,7 @@ module.exports = (fastify) => async (request, reply) => {
   // 验证码验证重试和重试的最大次数
   while (score === false && count <= 8) {
     fastify.log.info('第' + count + '次抓取...')
-    score = await crawlJwzx(fastify, request.query.user, request.query.psd).catch(error => fastify.log.error(error))
+    score = await crawlJwzx(fastify, request.query.user, request.query.psd)
     count++
   }
   if (score !== false) {

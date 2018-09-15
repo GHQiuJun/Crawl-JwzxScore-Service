@@ -32,11 +32,15 @@ async function crawlJwzx (fastify, user, psd) {
     sign: ''
   }
   // start headless browser
-  const browser = await puppeteer.launch({headless: false})
+  const browser = await puppeteer.launch({headless: true})
   // login page
   const page = await browser.newPage()
   await page.goto(loginUrl)
-  await page.waitFor('#login-jw')
+  await page.waitFor('#login-jw').catch(async err => {
+    fastify.log.error(err)
+    await browser.close()
+    return false
+  })
 
   // 获取二维码
   const image = await page.waitForSelector('.vCodePic')
@@ -79,7 +83,11 @@ async function crawlJwzx (fastify, user, psd) {
     fastify.log.error('验证码识别错误...')
     return false
   }
-  await page.waitFor('#cjAllTab-cjzb > div:nth-child(1) > b:nth-child(1)')
+  await page.waitFor('#cjAllTab-cjzb > div:nth-child(1) > b:nth-child(1)').catch(async err => {
+    fastify.log.error(err)
+    await browser.close()
+    return false
+  })
   // 抓取需要的内容
   let score = {
     'zbA': [],
