@@ -32,7 +32,7 @@ async function crawlJwzx (fastify, user, psd) {
     sign: ''
   }
   // start headless browser
-  const browser = await puppeteer.launch({headless: true})
+  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']})
   // login page
   const page = await browser.newPage()
   await page.goto(loginUrl)
