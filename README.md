@@ -28,7 +28,7 @@ docker run -e APP_ID=xxx -e APP_KEY=xx -e PORT=4000 -p 12345:4000 qiujun/crawl-j
   - [参考文献:Hosting Puppeteer in a Docker container][2]
 - 验证码识别
   - [腾讯AI开放平台接口][3]
-- 对验证码识别失败/错误情况得处理
+- 对验证码识别失败/错误情况的处理
   - 重试机制
 
 ## Example
